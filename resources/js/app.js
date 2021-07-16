@@ -8,6 +8,7 @@ require('./bootstrap');
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./routes";
+import MainComponent from "./components/MainComponent"
 
 window.Vue = require('vue').default;
 
@@ -19,6 +20,7 @@ window.Vue = require('vue').default;
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 Vue.use(VueRouter)
+Vue.component('app', require("./components/MainComponent").default)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -32,7 +34,7 @@ Vue.use(VueRouter)
 
 const app = new Vue({
     el: '#app',
-
+    components: {MainComponent},
 
     router: new VueRouter(routes)
 })

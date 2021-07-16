@@ -4,8 +4,8 @@
         <form>
             <div class="form-group">
                 <div class="form-group col-md-6">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <label for="username">Email</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="password">Password</label>
