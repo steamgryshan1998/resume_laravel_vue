@@ -99,12 +99,27 @@
                     commodi nobis quod voluptatibus aliquam earum ut.</p>
             </div>
         </div>
+    <div>
+        Authorized<br>
+
+
     </div>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+    data(){
+        return{
+            user: ''
+        }
+    },
+    mounted(){
+        axios.get('/api/user').then((res)=>{
+            this.user = res.data
+        })
+    }
+}
 </script>
 
 <style scoped>

@@ -9,7 +9,8 @@ export default {
     routes: [
         {
             path: '/',
-            component: CV
+            component: CV,
+            name: 'CV'
         },
         {
             path: '/adminpanel',
