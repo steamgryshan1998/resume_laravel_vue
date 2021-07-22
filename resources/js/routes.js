@@ -14,11 +14,19 @@ export default {
         },
         {
             path: '/adminpanel',
-            component: AdminPanel
+            component: AdminPanel,
+            // beforeEnter: (to, form, next) => {
+            //     axios.get('/api/athenticated').then(() =>{
+            //         next()
+            //     }).catch(()=>{
+            //         return next({name: 'Login'})
+            //     })
+            // }
         },
         {
             path: '/login',
-            component: Login
+            component: Login,
+            name: 'Login'
         },
         {
             path: '/signup',

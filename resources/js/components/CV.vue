@@ -17,19 +17,41 @@
                         <p>CONTACT</p>
                     </div>
                     <div class="sidebar_content">
-                        <p>380677084239<br>steamgryshan@gmail.com<br>
-                        <a href=WWW.GOOGLE.COM>WWW.GOOGLE.COM</a>
-                        </p>
+                        <div>
+                            <textarea v-if="showInputs" class="form-control" v-model="content.phone_number" aria-label="Education">{{content.phone_number}}</textarea>
+                        <span v-else>{{content.phone_number}}</span>
+                        </div>
+                        <div>
+                            <textarea v-if="showInputs" class="form-control" v-model="content.email" aria-label="Education">{{content.email}}</textarea>
+                        <span v-else>{{content.email}}</span>
+                        </div>
+                        <div>
+                            <textarea v-if="showInputs" class="form-control" v-model="content.website" aria-label="Education">{{content.website}}</textarea>
+                        <span v-else><a>{{content.website}}</a></span>
+                        </div>
+
                     </div>
                 </div>
                 <div>
                     <div class="col item">
                         <p>EDUCATION</p>
                     </div>
+                    <div class="sidebar_content">
+                        <div>
+                            <textarea v-if="showInputs" class="form-control" v-model="content.education" aria-label="Education">{{ content.education }}</textarea>
+                            <span v-else><a>{{ content.education }}</a></span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="col item">
                         <p>SKILLS</p>
+                    </div>
+                    <div class="sidebar_content">
+                        <div>
+                            <textarea v-if="showInputs" class="form-control" v-model="content.skills" aria-label="Education">{{content.skills}}</textarea>
+                            <span v-else><a>{{content.skills}}</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,72 +59,31 @@
             <div class="col-sm-9 justify-content-center content">
                 <h2>PROFILE</h2>
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium,
-                        ratione aperiam! Magnam suscipit ea
-                        eos cum, vel hic exercitationem architecto fuga sint quibusdam labore dignissimos sequi
-                        assumenda sit
-                        quos laudantium tempore facere necessitatibus aspernatur quisquam explicabo vitae nulla
-                        perspiciatis
-                        odit. Corrupti beatae, placeat illo eos itaque autem. Quam omnis voluptatum esse, aut earum
-                        rerum animi
-                        placeat perspiciatis reiciendis repellat possimus iste soluta magnam corporis molestiae?
-                        Necessitatibus
-                        ipsum, laboriosam eligendi esse ullam rem a quasi ipsa nisi officiis quis voluptate nihil
-                        quibusdam
-                        exercitationem. Dolore reprehenderit enim ea. Corrupti, ad! Fuga aliquam architecto debitis
-                        eveniet
-                        eligendi optio molestiae quis assumenda rerum incidunt!</p>
+                    <div>
+                        <textarea v-if="showInputs" class="form-control" v-model="content.profile" aria-label="Education">{{content.profile}}</textarea>
+                        <span v-else><a>{{content.profile}}</a></span>
+                    </div>
                 </div>
-                <p>
                 <h2>PROFESSIONAL EXPERIENCE</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate alias,
-                    molestiae eaque, modi corporis
-                    amet sit expedita corrupti quasi obcaecati explicabo error minus dolore quod vel quam quibusdam
-                    animi
-                    impedit odio, at blanditiis! Est doloremque culpa non reprehenderit, atque neque, sequi incidunt
-                    omnis
-                    nemo itaque, obcaecati totam tenetur. Optio exercitationem veritatis possimus cupiditate,
-                    delectus quo
-                    dolorum ex perspiciatis cumque. Nisi deserunt nulla esse eos aspernatur sed commodi labore.
-                    Tempora
-                    voluptatem deleniti accusantium distinctio rerum recusandae cupiditate, expedita doloribus eius
-                    inventore, aut laborum itaque, excepturi praesentium. Praesentium iste in quos quas eos
-                    doloribus, aut
-                    commodi nobis quod voluptatibus aliquam earum ut.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate alias,
-                    molestiae eaque, modi corporis
-                    amet sit expedita corrupti quasi obcaecati explicabo error minus dolore quod vel quam quibusdam
-                    animi
-                    impedit odio, at blanditiis! Est doloremque culpa non reprehenderit, atque neque, sequi incidunt
-                    omnis
-                    nemo itaque, obcaecati totam tenetur. Optio exercitationem veritatis possimus cupiditate,
-                    delectus quo
-                    dolorum ex perspiciatis cumque. Nisi deserunt nulla esse eos aspernatur sed commodi labore.
-                    Tempora
-                    voluptatem deleniti accusantium distinctio rerum recusandae cupiditate, expedita doloribus eius
-                    inventore, aut laborum itaque, excepturi praesentium. Praesentium iste in quos quas eos
-                    doloribus, aut
-                    commodi nobis quod voluptatibus aliquam earum ut.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate alias,
-                    molestiae eaque, modi corporis
-                    amet sit expedita corrupti quasi obcaecati explicabo error minus dolore quod vel quam quibusdam
-                    animi
-                    impedit odio, at blanditiis! Est doloremque culpa non reprehenderit, atque neque, sequi incidunt
-                    omnis
-                    nemo itaque, obcaecati totam tenetur. Optio exercitationem veritatis possimus cupiditate,
-                    delectus quo
-                    dolorum ex perspiciatis cumque. Nisi deserunt nulla esse eos aspernatur sed commodi labore.
-                    Tempora
-                    voluptatem deleniti accusantium distinctio rerum recusandae cupiditate, expedita doloribus eius
-                    inventore, aut laborum itaque, excepturi praesentium. Praesentium iste in quos quas eos
-                    doloribus, aut
-                    commodi nobis quod voluptatibus aliquam earum ut.</p>
+                <div>
+                <p></p>
+                <div>
+                    <textarea v-if="showInputs" class="form-control" v-model="content.experience" aria-label="Education">{{content.experience}}</textarea>
+                    <span v-else><a>{{content.experience}}</a></span>
+                </div>
+                </div>
             </div>
         </div>
-    <div>
+    <div v-if="user.name">
         Authorized<br>
-
-
+        {{user.name}}<br>
+        {{user.email}}<br>
+        {{user.role}}
+        <button class="btn btn-danger" type="button" @click="logout">Logout</button>
+    </div>
+    <div v-if="user.role === 'admin'">
+        <button class="btn btn-warning" type="button" @click="editContent">Edit</button>
+        <button class="btn btn-success" type="button" @click.prevent="submitEdition">Save changes</button>
     </div>
     </div>
 </template>
@@ -111,13 +92,78 @@
 export default {
     data(){
         return{
-            user: ''
+            user: {},
+            content: {
+                phone_number: '',
+                email: '',
+                location: '',
+                website: '',
+                education: '',
+                skills: '',
+                profile: '',
+                experience: ''
+            },
+            showInputs: false,
+            token: localStorage.getItem('token')
         }
     },
     mounted(){
-        axios.get('/api/user').then((res)=>{
-            this.user = res.data
-        })
+        const self = this;
+        window.axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
+        axios.get('/api/user').then(function (response) {
+                self.user = response.data
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        self.getContent();
+    },
+    methods: {
+        logout(){
+            axios.post('/api/logout').then(() => {
+                localStorage.removeItem('token')
+                this.$router.push('/login')
+            }).catch((errors) => {
+                console.log(errors)
+            })
+        },
+        getContent(){
+            const self = this;
+            axios
+                .get("api/content")
+                .then(response => {
+                    self.content = response.data.[0]
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+        },
+        editContent(){
+           this.showInputs = true;
+        },
+        submitEdition() {
+            axios
+                .put('api/content/' + this.content.id,  {
+                    phone_number: this.content.phone_number,
+                    email: this.content.email,
+                    location: this.content.location,
+                    website: this.content.website,
+                    education: this.content.education,
+                    skills: this.content.skills,
+                    profile: this.content.profile,
+                    experience: this.content.experience
+                })
+                .then(response => {
+                    this.showInputs = false;
+                    this.getContent();
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            // .finally(this.contact.id = null // fixed bug with button add new after edit
+            //     )
+        }
     }
 }
 </script>
