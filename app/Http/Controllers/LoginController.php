@@ -17,7 +17,7 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();//Retrieve the first model matching the query constraints...
         if (! $user || ! Hash::check($request->password, $user->password)){
             throw ValidationException::withMessages([
                 'email' => ["The provided data is incorrect"]

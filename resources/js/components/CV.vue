@@ -27,7 +27,7 @@
                         </div>
                         <div>
                             <textarea v-if="showInputs" class="form-control" v-model="content.website" aria-label="Education">{{content.website}}</textarea>
-                        <span v-else><a>{{content.website}}</a></span>
+                        <span v-else><a :href="content.website">{{content.website}}</a></span>
                         </div>
 
                     </div>
@@ -39,7 +39,7 @@
                     <div class="sidebar_content">
                         <div>
                             <textarea v-if="showInputs" class="form-control" v-model="content.education" aria-label="Education">{{ content.education }}</textarea>
-                            <span v-else><a>{{ content.education }}</a></span>
+                            <span v-else>{{ content.education }}</span>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="sidebar_content">
                         <div>
                             <textarea v-if="showInputs" class="form-control" v-model="content.skills" aria-label="Education">{{content.skills}}</textarea>
-                            <span v-else><a>{{content.skills}}</a></span>
+                            <span v-else>{{ skills() }}</span>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                 <div>
                     <div>
                         <textarea v-if="showInputs" class="form-control" v-model="content.profile" aria-label="Education">{{content.profile}}</textarea>
-                        <span v-else><a>{{content.profile}}</a></span>
+                        <span v-else>{{content.profile}}</span>
                     </div>
                 </div>
                 <h2>PROFESSIONAL EXPERIENCE</h2>
@@ -69,30 +69,32 @@
                 <p></p>
                 <div>
                     <textarea v-if="showInputs" class="form-control" v-model="content.experience" aria-label="Education">{{content.experience}}</textarea>
-                    <span v-else><a>{{content.experience}}</a></span>
+                    <span v-else>{{content.experience}}</span>
                 </div>
+                </div>
+                <div v-if="user.role === 'admin'">
+                    <button class="btn btn-warning" type="button" @click="editContent">Edit</button>
+                    <button class="btn btn-success" type="button" @click.prevent="submitEdition">Save changes</button>
                 </div>
             </div>
         </div>
-    <div v-if="user.name">
-        Authorized<br>
-        {{user.name}}<br>
-        {{user.email}}<br>
-        {{user.role}}
-        <button class="btn btn-danger" type="button" @click="logout">Logout</button>
-    </div>
-    <div v-if="user.role === 'admin'">
-        <button class="btn btn-warning" type="button" @click="editContent">Edit</button>
-        <button class="btn btn-success" type="button" @click.prevent="submitEdition">Save changes</button>
-    </div>
+<!--    <div v-if="user.name">-->
+<!--        Authorized<br>-->
+<!--        {{user.name}}<br>-->
+<!--        {{user.email}}<br>-->
+<!--        {{user.role}}-->
+<!--        <button class="btn btn-danger" type="button" @click="logout">Logout</button>-->
+<!--    </div>-->
+
     </div>
 </template>
 
 <script>
 export default {
+
     data(){
         return{
-            user: {},
+            user:{},
             content: {
                 phone_number: '',
                 email: '',
@@ -111,9 +113,9 @@ export default {
         const self = this;
         window.axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
         axios.get('/api/user').then(function (response) {
-                self.user = response.data
+            self.user = response.data
 
-            })
+        })
             .catch(function (error) {
                 console.log(error);
             })
@@ -163,8 +165,16 @@ export default {
                 })
             // .finally(this.contact.id = null // fixed bug with button add new after edit
             //     )
+        },
+        skills: function () {
+            let str = '';
+            let arr = str.split('-');
+
+            console.log(arr);
+            return this.content.skills;
+
         }
-    }
+    },
 }
 </script>
 
@@ -189,6 +199,7 @@ export default {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: bolder;
     font-size: 12px;
+    word-wrap:break-word
 }
 
 .title {

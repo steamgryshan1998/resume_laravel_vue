@@ -12,17 +12,17 @@ export default {
             component: CV,
             name: 'CV'
         },
-        {
-            path: '/adminpanel',
-            component: AdminPanel,
-            // beforeEnter: (to, form, next) => {
-            //     axios.get('/api/athenticated').then(() =>{
-            //         next()
-            //     }).catch(()=>{
-            //         return next({name: 'Login'})
-            //     })
-            // }
-        },
+        // {
+        //     path: '/adminpanel',
+        //     component: AdminPanel,
+        //     // beforeEnter: (to, form, next) => {
+        //     //     axios.get('/api/athenticated').then(() =>{
+        //     //         next()
+        //     //     }).catch(()=>{
+        //     //         return next({name: 'Login'})
+        //     //     })
+        //     // }
+        // },
         {
             path: '/login',
             component: Login,

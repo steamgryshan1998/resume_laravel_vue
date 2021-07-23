@@ -17,14 +17,16 @@
                     </div>
                 </div>
             </div>
-            <button @click.prevent="loginUser" type="submit" class="btn btn-primary">Log in</button>
+            <button @click.prevent="loginUser" type="button" class="btn btn-primary">Log in</button>
     </div>
 </template>
 
 <script>
 export default {
+
     data(){
         return{
+            user: {},
             form:{
                 email: '',
                 password: ''
@@ -34,12 +36,14 @@ export default {
     },
     methods: {
         loginUser(){
+            const self = this;
             axios.post('/api/login', this.form).then((response) => {
                 localStorage.setItem('token', response.data)
+                console.log(response.data);
                 console.log('logged');
-                this.$router.push({ name: "CV"});
+                self.$router.push({ name: "CV"});
             }).catch((error)=>{
-                this.validate = error.response.data.errors;
+                self.validate = error.response.data.errors;
             })
         }
     }
