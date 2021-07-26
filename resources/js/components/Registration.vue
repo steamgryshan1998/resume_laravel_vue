@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Registration</h2>
+    <div class="container">
+        <h2 align="center">Registration</h2>
             <div class="form-group">
                 <input type="text" class="form-control" :class="validate.name === undefined ? '' : ' is-invalid'" v-model="form.name" id="name" placeholder="Name">
                 <div v-for="error in validate.name" v-if="validate.name !== null" class="invalid-feedback">
@@ -32,7 +32,7 @@
 <!--                    </label>-->
 <!--                </div>-->
 <!--            </div>-->
-            <button @click.prevent="addUser" type="submit" class="btn btn-primary">Sign in</button>
+            <button @click.prevent="addUser" type="submit" style="width: 100%" class="btn btn-primary">Sign in</button>
     </div>
 </template>
 
@@ -65,5 +65,8 @@ export default {
 </script>
 
 <style scoped>
+.container{
+    margin-top: 30px;
+}
 
 </style>

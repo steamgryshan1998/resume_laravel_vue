@@ -7,7 +7,17 @@
             </div>
             <div class="col-sm-9 justify-content-center title">
                 <div class="col-7 mx-auto align-self-center name"><span>YEVHEN HRYSHKO<br>PHP-trainee</span></div>
-
+                <div v-if="user.name" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-user-circle"></i>{{user.name}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">{{user.email}}</a>
+                        <a class="dropdown-item" href="#">{{user.role}}</a>
+                        <a class="dropdown-item" href="#"><button class="btn btn-danger" type="button" @click="logout">Logout</button>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -73,8 +83,9 @@
                 </div>
                 </div>
                 <div v-if="user.role === 'admin'">
-                    <button class="btn btn-warning" type="button" @click="editContent">Edit</button>
-                    <button class="btn btn-success" type="button" @click.prevent="submitEdition">Save changes</button>
+                    <button class="btn btn-warning" v-if="!showInputs" type="button" @click="editContent">Edit</button>
+                    <button class="btn btn-danger" v-if="showInputs" type="button" @click="cancelEdit">Cancel</button>
+                    <button class="btn btn-success" v-if="showInputs" type="button" @click.prevent="submitEdition">Save changes</button>
                 </div>
             </div>
         </div>
@@ -106,11 +117,16 @@ export default {
                 experience: ''
             },
             showInputs: false,
-            token: localStorage.getItem('token')
+            //token: localStorage.getItem('token')
+        }
+    },
+    computed: {
+        token() {
+            return this.token = localStorage.getItem('token')
         }
     },
     mounted(){
-        const self = this;
+        let self = this;
         window.axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
         axios.get('/api/user').then(function (response) {
             self.user = response.data
@@ -143,6 +159,10 @@ export default {
         },
         editContent(){
            this.showInputs = true;
+        },
+        cancelEdit(){
+            this.showInputs = false;
+            this.getContent();
         },
         submitEdition() {
             axios
@@ -180,6 +200,7 @@ export default {
 
 <style scoped>
 .container {
+    margin-top: 30px;
     box-shadow: 0 0 30px;
     background-color: white;
 }
